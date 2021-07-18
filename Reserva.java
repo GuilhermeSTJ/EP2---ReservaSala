@@ -1,26 +1,27 @@
 import java.time.LocalDateTime;
 
 public class Reserva extends Sala{   
+    public String nome;
+    public LocalDateTime inicio;
+    public LocalDateTime fim;
+    public Reserva(String nome){
+        super(nome);
+        this.nome = nome;
+    }
 
-
-    public Reserva(LocalDateTime inicio, LocalDateTime fim){
-        Sala reservaSala = new Sala();
+    public String getNome(){
+        return nome;
+    }
+    public void setInicio(LocalDateTime inicio) {
         this.inicio = inicio;
+    }
+    public LocalDateTime getInicio() {
+        return inicio;
+    }
+    public void setFim(LocalDateTime fim) {
         this.fim = fim;
     }
-    public Sala sala(){
-        Sala reservaSala = new Sala();
-
-        return reservaSala;
-
-    }
-
-    public LocalDateTime inicio(){
-        return inicio;
-
-    }
-
-    public LocalDateTime fim(){
+    public LocalDateTime getFim() {
         return fim;
     }
 }
