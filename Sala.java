@@ -2,8 +2,14 @@ public class Sala {
     private String nome;
     private String local;
     private String observacoes;
+    private String descricao;
     private int capacidade;
     
+    public Sala(String nome, int capacidade ,String descricao){
+        this.nome = nome;
+        this.capacidade = capacidade;
+        this.descricao = descricao;
+    }
     public String getNome() {
         return nome;
     }
@@ -22,12 +28,20 @@ public class Sala {
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
+    public String getDescricao() {
+        return descricao;
+    }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
     public int getCapacidade() {
         return capacidade;
     }
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
     }
+
+    
 
     
 }

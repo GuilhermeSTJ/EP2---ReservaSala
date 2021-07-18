@@ -2,27 +2,44 @@ import java.time.*;
 import java.util.*;
 
 public class GerenciadorDeSalas {
+    List<Sala> listaSalas = new ArrayList<>();
+    Collection<Reserva> listaReservas = new ArrayList<>();
+
     public void adicionaSalaChamada(String nome, int capacidadeMaxima, String descricao){
+        Sala novaSala = new Sala(nome,capacidadeMaxima,descricao);
+        adicionaSala(novaSala);
 
     }
 
     public void removeSalaChamada(String nomeDaSala){
-
+        for(int i = 0; i < listaSalas.size(); i++){
+            if(listaSalas.get(i).getNome() == nomeDaSala){
+                listaSalas.remove(i);
+            }
+        }
     }
 
     public List<Sala> listaDeSalas(){
-        List<Sala> lista = new ArrayList<>();
+        
+        return listaSalas;
+    }
 
-        return lista;
+    public void imprimeLista(){
+        for(int i = 0; i < listaSalas.size(); i++){
+            System.out.println(listaSalas.get(i).getNome() +" "+ listaSalas.get(i).getCapacidade() + " "+ listaSalas.get(i).getDescricao());
+        }
+
     }
 
     public void adicionaSala(Sala novaSala){
+        listaSalas.add(novaSala);
 
     }
 
     public Reserva reservaSalaChamada(String nomeDaSala, LocalDateTime dataInicial, LocalDateTime dataFinal){
-        Reserva reserva = new Reserva();
+        Reserva reserva = new Reservateste();
 
+        listaReservas.add(reserva);
         return reserva;
     }
 
@@ -31,9 +48,8 @@ public class GerenciadorDeSalas {
     }
 
     public Collection<Reserva> reservasParaSala(String nomeSala){
-        Collection<Reserva> reservas = new ArrayList<>();
-
-        return reservas;
+        
+        return listaReservas;
     }
 
     public void imprimeReservasDaSala(String nomeSala){
