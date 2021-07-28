@@ -5,6 +5,9 @@ public class Sala {
     private String descricao;
     private int capacidade;
     
+    public Sala(){
+    }
+    
     public Sala(String nome){
         this.nome = nome;
     }

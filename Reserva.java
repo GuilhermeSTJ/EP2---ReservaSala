@@ -4,6 +4,10 @@ public class Reserva extends Sala{
     public String nome;
     public LocalDateTime inicio;
     public LocalDateTime fim;
+
+    public Reserva(){        
+    }
+    
     public Reserva(String nome){
         super(nome);
         this.nome = nome;
