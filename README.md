@@ -5,6 +5,8 @@
 MarcarReuniaoentre: Que deve ser o metodo que "integra" os metodos:
 
 indicaDisponibilidadeDe:
+  // Usamos um horario somente para cada participante a fim de manter um padrão
+  
   onde cada participante é identificado com uma String e o início e fim da disponibilidade
   é indicado com dias e horários dados por instâncias de java.time.LocalDateTime.
   Finalmente, você deve implementar o método:
