@@ -8,15 +8,16 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException{
         Collection<String> listaParticipantes = new LinkedList<>();
         Scanner scanner = new Scanner(new FileReader("ListaDeParticipantes.txt")).useDelimiter("\\n");
-       
+        MarcadorDeReuniao mDeReuniao = new MarcadorDeReuniao();
         while(scanner.hasNext()) { // laço responsavel pela leitura da lista de participantes
             String[] linha = scanner.next().split(" & ");
             listaParticipantes.add(linha[0]);
-            MarcadorDeReuniao mDeReuniao = new MarcadorDeReuniao();
+            
             mDeReuniao.indicaDisponibilidadeDe(linha[0], LocalDateTime.parse(linha[1]), LocalDateTime.parse(linha[2]));
             
+            
         }
-        
+        mDeReuniao.mostraSobreposicao();
 
     }
 }
