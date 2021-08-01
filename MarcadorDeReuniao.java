@@ -104,6 +104,7 @@ public class MarcadorDeReuniao {
                         if(listaReservas.get(i).getNome() == cancelar){
                             gSalas.cancelaReserva(listaReservas.get(i));
                             comp++;
+                            System.out.print("Reserva Cancelada");
                         }
                     }
                     if(comp != 0) System.out.println("Erro!");

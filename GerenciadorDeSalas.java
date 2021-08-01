@@ -123,6 +123,7 @@ public class GerenciadorDeSalas {
         int j = 0;
         for(int i = 0; i < listaReservas.size(); i++){
             if(listaReservas.get(i).getNome() == nomeSala){
+                System.out.println("A reserva é:");
                 System.out.println(listaReservas.get(i)); 
                 j++;
             } 
