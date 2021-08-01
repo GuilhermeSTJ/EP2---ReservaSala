@@ -1,9 +1,9 @@
 import java.time.LocalDateTime;
 
 public class Reserva extends Sala{   
-    public String nome;
-    public LocalDateTime inicio;
-    public LocalDateTime fim;
+    private String nome;
+    private LocalDateTime inicio;
+    private LocalDateTime fim;
 
     public Reserva(){        
     }

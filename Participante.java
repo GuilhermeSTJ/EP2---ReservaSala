@@ -1,10 +1,9 @@
 import java.time.LocalDateTime;
-import java.util.*;
 
 public class Participante{ 
-    public String nome;
-    public LocalDateTime horarioInicio;
-    public LocalDateTime horarioFim;
+    private String nome;
+    private LocalDateTime horarioInicio;
+    private LocalDateTime horarioFim;
 
 
     public void setHorarioInicio(LocalDateTime inicio){

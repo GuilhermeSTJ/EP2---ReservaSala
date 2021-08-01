@@ -1,14 +1,28 @@
-import java.io.IOException;
 import java.time.*;
 import java.util.*;
 
 public class GerenciadorDeSalas {
-    List<Sala> listaSalas = new LinkedList<>();
-    List<Reserva> listaReservas = new LinkedList<>();
+    private List<Sala> listaSalas = new LinkedList<>();
+    private List<Reserva> listaReservas = new LinkedList<>();
+    Scanner teclado = new Scanner(System.in);
 
     public void adicionaSalaChamada(String nome, int capacidadeMaxima, String descricao){
         Sala novaSala = new Sala(nome, capacidadeMaxima, descricao);
-        adicionaSala(novaSala);
+        listaSalas.add(novaSala);
+    }
+
+    public void adicionaSala(Sala novaSala){
+        System.out.println("Diga o nome da nova sala e em seguida a descricao");
+        String nome = teclado.nextLine();
+        String descricao = teclado.nextLine();
+        System.out.println("Qual sera a capacidade dessa sala?");
+        int capaci = teclado.nextInt();
+        teclado.nextLine();
+        novaSala.setCapacidade(capaci);
+        novaSala.setDescricao(descricao);
+        novaSala.setNome(nome);
+        System.out.println("A sala nova tem nome:" + nome + " capacidade:" + capaci + " descricao:" + descricao);
+        listaSalas.add(novaSala);
 
     }
 
@@ -26,7 +40,7 @@ public class GerenciadorDeSalas {
 
     public void imprimeLista(){
         for(int i = 0; i < listaSalas.size(); i++){
-            System.out.println(listaSalas.get(i).getNome() +" "+ listaSalas.get(i).getCapacidade() + " "+ listaSalas.get(i).getDescricao());
+            System.out.println("\n"+ i+ "- " + listaSalas.get(i).getNome() +" "+ listaSalas.get(i).getCapacidade() + " "+ listaSalas.get(i).getDescricao());
         }
 
     }
@@ -35,10 +49,7 @@ public class GerenciadorDeSalas {
             System.out.println(listaReservas);        
     }
 
-    public void adicionaSala(Sala novaSala){
-        listaSalas.add(novaSala);
 
-    }
 
     // Metodo que retorna True quando a reserva é invalida
     public boolean verificaReservaSala(String nomeDaSala, LocalDateTime dataInicial, LocalDateTime dataFinal){
@@ -76,18 +87,19 @@ public class GerenciadorDeSalas {
         return false;
     }
 
-    public Reserva reservaSalaChamada(String nomeDaSala, LocalDateTime dataInicial, LocalDateTime dataFinal) throws Exception{
+    public Reserva reservaSalaChamada(String nomeDaSala, LocalDateTime dataInicial, LocalDateTime dataFinal) throws ErroSalaException{
         Reserva reserva = new Reserva();
-        try{
-            if(verificaReservaSala(nomeDaSala, dataInicial, dataFinal)) throw new Exception();
-            reserva.setNome(nomeDaSala);
-            reserva.setInicio(dataInicial);
-            reserva.setInicio(dataFinal);
+       try{
+            if(verificaReservaSala(nomeDaSala, dataInicial, dataFinal)) throw new ErroSalaException();
+            else{    
+                reserva.setNome(nomeDaSala);
+                reserva.setInicio(dataInicial);
+                reserva.setInicio(dataFinal);
 
-            listaReservas.add(reserva);
-                
-        } catch(Exception e){
-            System.out.println("Erro ao tentar reservar a sala");
+                listaReservas.add(reserva);
+            }                
+        } catch(ErroSalaException e){
+            throw e;
         }
 
         return reserva;
@@ -108,9 +120,17 @@ public class GerenciadorDeSalas {
     }
 
     public void imprimeReservasDaSala(String nomeSala){
-        
+        int j = 0;
         for(int i = 0; i < listaReservas.size(); i++){
-            if(listaReservas.get(i).getNome() == nomeSala) System.out.println(listaReservas.get(i));
+            if(listaReservas.get(i).getNome() == nomeSala){
+                System.out.println(listaReservas.get(i)); 
+                j++;
+            } 
         }
+        if (j == 0) System.out.println("Sala atualmente sem reservas ou nome digitado errado.");
+    }
+
+    public List<Reserva> retornaReservas(){
+        return listaReservas;
     }
 }
