@@ -1,5 +1,6 @@
-Nome: Guilherme Sebastião Teodoro Junior Nusp=11953911
-Nome: Izabel C. Barranco Nusp=119847711
+Alunos:
+-Nome: Guilherme Sebastião Teodoro Junior Nusp=11953911
+-Nome: Izabel C. Barranco Nusp=119847711
 
 ***********************************************************************************************************************************
 Como compilar:
@@ -10,7 +11,8 @@ java Main(Classe principal)
 Atenções ao rodar o codigo:
 Na classe MarcadorDeReuniao no metodo marcarReuniaoEntre esta presente um "menu"(interface console) onde podemos fazer
 chamadas a todos metodos de MarcadorDeReuniao e alguns de GerenciadorDeSalas(Necessarios).
-Sendo assim é muito importante fazer a chamada a esse metodo. 
+Sendo assim é muito importante fazer a chamada a esse metodo.
+É necessario rodar o case "2" no menu antes do "3" visto que as sobreposicoes so ocorrem se for indicado as disponibilidades 
 
 ***********************************************************************************************************************************
 Observações:
