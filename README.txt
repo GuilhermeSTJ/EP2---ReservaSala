@@ -12,7 +12,7 @@ Atenções ao rodar o codigo:
 Na classe MarcadorDeReuniao no metodo marcarReuniaoEntre esta presente um "menu"(interface console) onde podemos fazer
 chamadas a todos metodos de MarcadorDeReuniao e alguns de GerenciadorDeSalas(Necessarios).
 Sendo assim é muito importante fazer a chamada a esse metodo.
-É necessario rodar o case "2" no menu antes do "3" visto que as sobreposicoes so ocorrem se for indicado as disponibilidades 
+No "menu" é necessario rodar o case "2" antes do "3" visto que as sobreposicoes so ocorrem se for indicado as disponibilidades 
 
 ***********************************************************************************************************************************
 Observações:
